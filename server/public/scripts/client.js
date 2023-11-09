@@ -10,7 +10,7 @@ function addTask(){
     })
 }
 
-function completeTask(id){
+function complçeteTask(id){
     console.log( 'in completeTask:', id );
     axios.put(`/todos?id=${id}`).then( (response)=>{
         console.log( response );
