@@ -10,7 +10,7 @@ function addTask(){
     })
 }
 
-function complçeteTask(id){
+function completeTask(id){
     console.log( 'in completeTask:', id );
     axios.put(`/todos?id=${id}`).then( (response)=>{
         console.log( response );
@@ -48,12 +48,11 @@ function renderList(list){
     const el = document.getElementById( 'todoOut' );
     let appendText = '';
     for( item of list ){
-        appendText += `<li>`;
-        if( item.isComplete ) appendText += `<strong>`;
-        appendText += `${item.text}`;
-        if( item.isComplete ) appendText += `</strong>`;
-        else appendText += `<button onClick="completeTask(${item.id})">Complete</button>`;
-        appendText += `<button onClick="deleteTask(${item.id})">Delete</button></li>`;
+        appendText += `<li data-testid="toDoItem"`;
+        if( item.isComplete ) appendText += ` class="completed"`;
+        appendText += `>${item.text}`
+        if( !item.isComplete ) appendText += `<button onClick="completeTask(${item.id})" data-testid="completeButton">Complete</button>`;
+        appendText += `<button onClick="deleteTask(${item.id})" data-testid="deleteButton">Delete</button></li>`;
     } // end for
     el.innerHTML = appendText;
 }

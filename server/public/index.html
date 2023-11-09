@@ -6,12 +6,13 @@
   <link rel="stylesheet" href="style.css">
   <script src="./scripts/axios.js"></script>
   <script defer src="./scripts/client.js"></script>
+  <link rel="stylesheet" href="styles/todo.css">
   <title>SQL TO-DO List</title>
 </head>
 <body>
   <header>
     <h1>SQL TO-DO List</h1>
-    <input id="taskIn" placeholder="task name"><button onClick="addTask()">Add Task</button>
+    <input id="taskIn" placeholder="task name" data-testid="toDoTextInput"><button onClick="addTask()" data-testid="submitButton">Add Task</button>
   </header>
   <ul id="todoOut"></ul>
 </body>
